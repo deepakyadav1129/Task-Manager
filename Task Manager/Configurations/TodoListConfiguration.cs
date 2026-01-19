@@ -15,12 +15,16 @@ namespace TaskManager.Configurations
             builder.Property(x => x.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
 
             // Relationship: User -> TodoLists (One-to-Many)
+            // Each TodoList belongs to exactly one User
+            // UserId acts as the foreign key
             builder.HasOne(x => x.User)
                    .WithMany(x => x.TodoLists)
                    .HasForeignKey(x => x.UserId)
                    .OnDelete(DeleteBehavior.Cascade);
 
             // Relationship: TodoList -> Tasks (One-to-Many)
+            // A TodoList can contain multiple TodoTasks
+            // Deleting a TodoList deletes all its tasks
             builder.HasMany(x => x.TodoTasks)
                    .WithOne(x => x.TodoList)
                    .HasForeignKey(x => x.TodoListId)

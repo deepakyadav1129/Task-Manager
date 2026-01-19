@@ -12,6 +12,11 @@ namespace TaskManager.Data
 
         //Add DB Sets
         public DbSet<User> Users { get; set; }
+        public DbSet<TodoList> TodoLists { get; set; }
+        public DbSet<TodoTask> TodoTasks { get; set; }
+        public DbSet<SubTask> SubTasks { get; set; }
+        public DbSet<Note> Notes { get; set; }
+        public DbSet<Reminder> Reminders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

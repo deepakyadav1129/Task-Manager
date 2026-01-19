@@ -6,7 +6,7 @@
         public required string Content { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        public int TaskId { get; set; }
+        public int TodoTaskId { get; set; }
         public TodoTask TodoTask { get; set; } = null!;
     }
 }
