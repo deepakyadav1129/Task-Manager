@@ -38,6 +38,9 @@ namespace Task_Manager.Configurations
                 .HasForeignKey(x => x.TodoTaskId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            builder.HasMany(x => x.TaskTags)
+               .WithOne(x => x.TodoTask)
+               .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
