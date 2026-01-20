@@ -1,8 +1,28 @@
-﻿@*
+﻿@using TaskManager.Models
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
-<h5>Your ToDo Lists</h5>
 
+@model List<TodoList>
+
+<h5>Your ToDo Lists</h5>
 <a asp-controller="TODO" asp-action="Create" class="btn btn-primary">+ Create New List</a>
+@if (!Model.Any())
+{
+    <p class="text-muted">No todo lists created yet.</p>
+}
+else
+{
+    <ul class="list-group mt-3">
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item">
+                <strong>@item.Title</strong><br />
+                <small>@item.Description</small>
+            </li>
+        }
+    </ul>
+}
+
