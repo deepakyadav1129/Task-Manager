@@ -1,14 +1,9 @@
 ﻿@using Microsoft.EntityFrameworkCore.Metadata.Internal
 @using TaskManager.ViewModels
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
 @model CreateToDoViewModel
-<h5>Create new TO-DO List</h5>
+<h5>Create new Todo Taskt</h5>
 @Html.AntiForgeryToken()
-<form asp-action="Create" asp-controller="TODO" method="post">
+<form asp-action="Create" asp-controller="TodoTask" method="post">
     <div class="mb-3">
         <label asp-for="Title" class="form-label">Title</label>
         <input asp-for="Title" type="text" class="form-control" id="title">
@@ -17,5 +12,5 @@
         <label asp-for="Description" class="form-label">Description</label>
         <textarea asp-for="Description" class="form-control" id="description" rows="3"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    @* <button type="submit" class="btn btn-primary">Submit</button> *@
 </form>

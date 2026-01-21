@@ -4,10 +4,17 @@
 *@
 @{
 }
+@model TaskManager.Models.TodoList
 
-@model List<TodoList>
+<h3>@Model.Title</h3>
 
-<h5>Your ToDo Lists</h5>
+<p class="text-muted">
+    @Model.Description
+</p>
+
+<a asp-controller="TodoTask" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-primary">+ Create New Task</a>
+
+@*<h 5>Your ToDo Lists</h5>
 <a asp-controller="TODO" asp-action="Create" class="btn btn-primary">+ Create New List</a>
 @if (!Model.Any())
 {
@@ -40,6 +47,6 @@ else
             }
 
         </tbody>
-    </table>
-}
+    </table> 
+}*@
 
